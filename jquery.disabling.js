@@ -25,7 +25,7 @@
     }
     else {
       $obj.siblings('[name$="[_destroy]"]').val(1);
-      $obj.siblings().attr('disabled', $obj.siblings('[name$="[id]"]').val() == '' ? false : true);
+      $obj.siblings().attr('disabled', $obj.siblings('[name$="[id]"]').val() == '');
     }
   }
 })(jQuery);

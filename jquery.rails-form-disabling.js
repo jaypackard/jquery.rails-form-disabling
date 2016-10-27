@@ -10,10 +10,12 @@
     var $this = $(this);
     
     $this.click(function() {
-      perform($this);
+       perform($(this));
     });  
 
-    perform($this);
+    $this.each(function() {
+       perform($(this));
+    });
 
     return $this;
   };

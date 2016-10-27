@@ -4,27 +4,26 @@
     <p>Inspect DOM to see what is happening when you check or uncheck the check boxes</p>
     <form action="/person/1.js" method="post">
     	Name: <input type="text" name="person[name]"></input><br/>
-    	Email: <input type="text" name="person[email]"></input><br/>
     	Watched movies:<br/>
     	<div style='margin-left:10px'>
     		<input type="hidden" name="person[watched_movies_attributes][][id]" value="123"/>
-        	<input type="hidden" name="person[watched_movies_attributes][][_destroy]"/>
+        <input type="hidden" name="person[watched_movies_attributes][][_destroy]"/>
     		<input type="hidden" name="person[watched_movies_attributes][][title]" value="What About Bob?"/>
     		<input type="hidden" name="person[watched_movies_attributes][][year]" value="1991"/>
-    		<input type="checkbox"  id='what_about_bob' class="disabling"/> What About Bob?
+    		<input type="checkbox"  id='what_about_bob' class="disabling"/> What About Bob? (since this has an ID, so if unchecked set _destroy to 1 to destroy underlying record, otherwise 0)
     	</div>
     	<div style='margin-left:10px'>
-        	<input type="hidden" name="person[watched_movies_attributes][][id]" value=""/>
-        	<input type="hidden" name="person[watched_movies_attributes][][_destroy]"/>
-        	<input type="hidden" name="person[watched_movies_attributes][][title]" value="Groundhog Day"/>
-        	<input type="hidden" name="person[watched_movies_attributes][][year]" value="1993"/>
-    		<input type="checkbox" id='groundhog_day' class="disabling"/> Groundhog Day
+      	<input type="hidden" name="person[watched_movies_attributes][][id]" value=""/>
+      	<input type="hidden" name="person[watched_movies_attributes][][_destroy]"/>
+      	<input type="hidden" name="person[watched_movies_attributes][][title]" value="Groundhog Day"/>
+      	<input type="hidden" name="person[watched_movies_attributes][][year]" value="1993"/>
+    		<input type="checkbox" id='groundhog_day' class="disabling"/> Groundhog Day (this is a new record, so if unchecked set disabled attribute so nothing is passed, otherwise remove disabled attribute)
     	</div>
     </form>
     <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="jquery.disabling.js"></script>
+    <script type="text/javascript" src="jquery.rails-form-disabling.js"></script>
     <script type="text/javascript">
-      $('.disabling').each(function(){$(this).disabling()});
+      $('.disabling').disabling();
     </script>    
   </body>
 </html>

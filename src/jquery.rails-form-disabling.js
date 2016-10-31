@@ -6,7 +6,7 @@
  * Released under the MIT license
  */
 (function($) {
-  $.fn.disabling = function(options) {
+  $.fn.rails_form_disabling = function(options) {
     var $this = $(this);
     
     $this.click(function() {
